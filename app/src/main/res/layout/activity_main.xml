@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/colorBg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="80dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="30dp"
+        android:hint="Email address"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/raduis_background"
+        />
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="30dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:background="@drawable/raduis_background"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="2dp">
+
+        <Button
+            android:id="@+id/btnSkip"
+            android:layout_weight="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/colorBg"
+            android:background="@drawable/raduis_background"
+            android:textSize="16dp"
+            android:text="Skip"
+            />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_weight="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:padding="10dp"
+            android:textColor="@color/colorBg"
+            android:background="@drawable/raduis_background"
+            android:textSize="16dp"
+            android:text="Log in"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Not yet a member? Sign up now."
+        android:textAlignment="center"
+        android:textSize="16dp"
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/signup_button_bg_raduis"
+        />
+    <Button
+        android:id="@+id/btnHdetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to Home Detail"
+        android:textAlignment="center"
+        android:textSize="16dp"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/signup_button_bg_raduis"
+        />
+</LinearLayout>

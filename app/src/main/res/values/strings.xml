@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Thavath</string>
+    <string name="title">Thavath</string>
+    <string name="email_here">Email here.</string>
+    <string name="welcome_to_homepage">Welcome to Homepage.</string>
+    <string name="your_name_here">Your Name here.</string>
+    <string name="logout">Logout</string>
+    <string name="home">Home</string>
+    <string name="account">Account</string>
+    <string name="notif">Notification</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_account_fragment">Hello Account fragment</string>
+    <string name="hello_home_fragment">Hello Home fragment</string>
+    <string name="hello_not_fragment">Hello Notification fragment</string>
+
+</resources>

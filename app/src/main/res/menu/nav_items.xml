@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_item"
+        android:icon="@drawable/baseline_home_black_24dp"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/notifi_item"
+        android:icon="@drawable/baseline_notifications_black_24dp"
+        android:title="@string/notif" />
+    <item
+        android:id="@+id/account_item"
+        android:icon="@drawable/baseline_person_black_24dp"
+        android:title="@string/account" />
+</menu>
