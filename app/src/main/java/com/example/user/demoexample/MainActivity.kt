@@ -8,9 +8,18 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(){
+
+
+    private var mDatabaseReference: DatabaseReference? = null
+    private var mDatabase: FirebaseDatabase? = null
+    private var mAuth: FirebaseAuth? = null
 
 
     var name = "rath thavath"
@@ -26,6 +35,11 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        mDatabase = FirebaseDatabase.getInstance()
+        mDatabaseReference = mDatabase!!.reference!!.child("Users")
+        mAuth = FirebaseAuth.getInstance()
 
         users.add(user)
         users.add(user1)
@@ -52,7 +66,42 @@ class MainActivity : AppCompatActivity(){
             startActivity(intent)
         }
 
+
         btnLogin.setOnClickListener {
+
+            var email = txtEmail.text.toString()
+            var password = txtPassword.text.toString()
+
+            if (txtEmail.text.isEmpty() && txtPassword.text.isEmpty()) {
+                Toast.makeText(this, "Please input Email and Password", Toast.LENGTH_SHORT).show()
+            }
+            mAuth!!.signInWithEmailAndPassword(email!!, password!!)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with signed-in user's information
+                            Toast.makeText(this, "Login successfully.",
+                                    Toast.LENGTH_SHORT).show()
+                            var intent = Intent(this, HomeActivity::class.java)
+
+                            val mUser = mAuth!!.currentUser
+
+//                            Toast.makeText(this, user_data.key , Toast.LENGTH_SHORT).show()
+//                            val email_user = mUser!!.email
+//                            var nuser = Person(user_name!!, email_user!!, "")
+//                            intent.putExtra("users", nuser)
+
+                            Toast.makeText(this, "Log in successfully..", Toast.LENGTH_SHORT).show()
+                            startActivity(intent)
+                            finish()
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show()
+                        }
+                    }
+        }
+        /* btnLogin.setOnClickListener {
             if (txtEmail.text.isEmpty() && txtPassword.text.isEmpty()) {
                 Toast.makeText(this, "Please input Email and Password", Toast.LENGTH_SHORT).show()
             }
@@ -68,7 +117,7 @@ class MainActivity : AppCompatActivity(){
                     Toast.makeText(this, "Invalid User", Toast.LENGTH_SHORT).show()
                 }
             }
-        }
+        } */
         btnSignup.setOnClickListener {
 
             var intent = Intent(this, SignupActivity::class.java)
@@ -91,4 +140,11 @@ class MainActivity : AppCompatActivity(){
                     Toast.makeText(this, "You back homepage.", Toast.LENGTH_SHORT).show()
             }
         }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = mAuth!!.getCurrentUser()
+        // updateUI(currentUser)
+    }
 }
