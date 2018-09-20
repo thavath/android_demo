@@ -52,9 +52,16 @@ class MainActivity : AppCompatActivity(){
         var btnSkip = findViewById<Button>(R.id.btnSkip)
         var btnHdtail = findViewById<Button>(R.id.btnHdetail)
 
+        var btnFrag = findViewById<Button>(R.id.btnFragment)
+
         txtEmail.text.clear()
         txtPassword.text.clear()
 
+
+        btnFrag.setOnClickListener {
+            var intent = Intent(this, FragmentsActivity::class.java)
+            startActivity(intent)
+        }
 
         btnSkip.setOnClickListener {
             var intent = Intent(this, GalleryActivity::class.java)
