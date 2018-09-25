@@ -1,14 +1,10 @@
 package com.example.user.demoexample
 
-import android.app.Fragment
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.LinearLayout
 import com.example.user.demoexample.fragments.DemoFragment
-
-import kotlinx.android.synthetic.main.activity_fragments.*
 
 class FragmentsActivity : AppCompatActivity() {
 
@@ -22,13 +18,13 @@ class FragmentsActivity : AppCompatActivity() {
 
         var demoFragment = DemoFragment()
 
-        var container_fragment = findViewById<LinearLayout>(R.id.container_fragment)
+        // var container_fragment = findViewById<LinearLayout>(R.id.container_fragment)
 
-        setFragment(demoFragment)
+        this.setFragment(demoFragment)
 
         btnNext.setOnClickListener {
             // container_fragment.setBackgroundResource(R.color.colorHbg)
-            setFragment(demoFragment)
+            this.setFragment(demoFragment)
         }
 
     }
